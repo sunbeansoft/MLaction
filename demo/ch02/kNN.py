@@ -24,9 +24,10 @@ def classify0(inX, dataSet, labels, k):
     sortedClassCount = sorted(classCount.iteritems(), key=operator.itemgetter(1), reverse=True)
     return sortedClassCount[0][0]
 
-# group,labels=createDataSet()
 
-# classify0([0,0],group,labels,3)
+group, labels = createDataSet()
+
+classify0([0, 0], group, labels, 3)
 
 
 def file2matrix(filename):
@@ -44,7 +45,9 @@ def file2matrix(filename):
         index += 1
     return returnMat, classLabelVector
 
-file2matrix('a.txt')
+
+# file2matrix('a.txt')
+
 
 def autoNorm(dataSet):
     minVals = dataSet.min(0)
@@ -106,5 +109,6 @@ def handwritingClassTest():
         if (classifierResult != classNumStr): errorCount += 1.0
     print "\nthe total number of errors is: %d" % errorCount
     print "\nthe total error rate is: %f" % (errorCount / float(mTest))
+
 
 handwritingClassTest()
